@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import type {Props} from '@/interface/compositeCommentInterface';
-import IconUI from './UI/IconUI.vue';
+import type {Props} from '@/interface/CompositeCommentInterface';
+import AvatarUI from '@/components/UI/AvatarUI.vue';
+import UserInfoUI from './UI/UserInfoUI.vue';
+import CommentInteraction from './CommentInteraction.vue';
 
 const props = defineProps<Props>()
 
@@ -10,27 +12,11 @@ const nestedComments = props.comment.childComments;
 
 <template>
     <div class="flex mt-4">
-        <div class="w-16 h-8 rounded-full flex items-center justify-center flex">
-            <img :src="comment.avatar" class="w-8 h-8" alt="">
-        </div>     
+        <AvatarUI :url="comment.avatar"/>   
         <div class="ml-4">
-            <div class="flex gap-4">
-                <div class="text-0.75 font-bold">{{ comment.name }}</div>
-                <div class="text-0.75 mt-auto mb-auto text-gray-600">{{ comment.time }}</div>
-            </div>
+            <UserInfoUI :comment="comment"/>
             <div class="mt-2 text-0.875">{{ comment.comment }}</div>
-            <div class="flex gap-2">
-                <div class="flex">
-                    <div class="w-8 h-8 rounded-full flex items-center justify-center flex hover:bg-gray-200">
-                        <IconUI :name="'up-arrow'"/>
-                    </div>
-                    <span class="ml-1 text-0.75 mt-auto mb-auto font-bold">{{ comment.likes }}</span>
-                </div>
-                <span class="text-0.75 mt-auto mb-auto font-bold">Vote</span>
-                <div class="w-8 h-8 rounded-full flex items-center justify-center flex hover:bg-gray-200">
-                    <IconUI :name="'down-arrow'"/>
-                </div>
-            </div>
+            <CommentInteraction :comment="comment"/>
             <template v-if="nestedComments">
                 <CompositeComment v-for="(nestedComment) in nestedComments" :key="nestedComment.id" :comment="nestedComment"/>
             </template>

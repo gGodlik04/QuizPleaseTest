@@ -13,7 +13,7 @@ const mockData: mockDataType[] = [
                 id: 2,
                 name: 'drippysock',
                 time: '2h ago',
-                likes: 18,
+                likes: 0,
                 avatar: '/src/images/1.png',
                 comment: `"Think he should drop out" and "I won't vote for him if he doesn't drop out" are not necessarily equivalent statements.`,
                 childComments: [],

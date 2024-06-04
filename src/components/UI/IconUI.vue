@@ -1,9 +1,7 @@
 <script setup lang="ts">
+import type { Props } from '@/interface/UI/IconUIInterace'
 
-const props = defineProps({
-  name: String,
-  class: String,
-});
+const props = defineProps<Props>();
 
 </script>
 
