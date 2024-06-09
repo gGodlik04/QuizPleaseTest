@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type {Props} from '@/interface/CompositeCommentInterface';
 import AvatarUI from '@/components/UI/AvatarUI.vue';
+import AvatarTree from '@/components/AvatarTree.vue';
 import UserInfoUI from './UI/UserInfoUI.vue';
 import CommentInteraction from './CommentInteraction.vue';
 
@@ -13,7 +14,9 @@ const nestedComments = props.comment.childComments;
 
 <template>
     <div class="flex mt-4">
-        <AvatarUI :url="comment.avatar"/>   
+        <AvatarTree>
+            <AvatarUI :url="comment.avatar"/>   
+        </AvatarTree>
         <div class="ml-4 w-full">
             <UserInfoUI :comment="comment"/>
             <div class="mt-2 text-0.875">{{ comment.comment }}</div>
