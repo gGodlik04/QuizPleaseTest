@@ -4,6 +4,7 @@ import AvatarUI from '@/components/UI/AvatarUI.vue';
 import UserInfoUI from './UI/UserInfoUI.vue';
 import CommentInteraction from './CommentInteraction.vue';
 
+
 const props = defineProps<Props>()
 
 const nestedComments = props.comment.childComments;
@@ -13,7 +14,7 @@ const nestedComments = props.comment.childComments;
 <template>
     <div class="flex mt-4">
         <AvatarUI :url="comment.avatar"/>   
-        <div class="ml-4">
+        <div class="ml-4 w-full">
             <UserInfoUI :comment="comment"/>
             <div class="mt-2 text-0.875">{{ comment.comment }}</div>
             <CommentInteraction :comment="comment"/>

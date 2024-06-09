@@ -3,12 +3,13 @@ import CommentsView from './views/CommentsView.vue';
 </script>
 
 <template>
-  <header>
+  <header></header>
+  <main>
     <div class="wrapper">
       <CommentsView/>
     </div>
-  </header>
-
+  </main>
+  
 
 </template>
 
